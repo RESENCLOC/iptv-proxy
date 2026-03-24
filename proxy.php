@@ -220,7 +220,7 @@ if ($extIsM3U || $extIsM3U8 || $noExt) {
 // ── STREAM DIRECTO (.ts, VOD, binarios) ──
 $ch = curl_init();
 $fwdHeaders = buildForwardHeaders();
-if (isset($_SERVER['HTTP_RANGE'])) {
+if (isset($_SERVER['HTTP_RANGE']) && $extIsTS) {
     $fwdHeaders[] = 'Range: ' . $_SERVER['HTTP_RANGE'];
 }
 
